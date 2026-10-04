@@ -1,0 +1,14 @@
+google-generativeai>=0.8.0
+pandas>=2.0.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+emoji>=2.10.0
+openpyxl>=3.1.0
+
+# --- Evidence-Aware Fake News Detection pipeline (src/verification/) ---
+requests>=2.31.0
+trafilatura>=1.8.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+rank-bm25>=0.2.2
+scikit-learn>=1.4.0
