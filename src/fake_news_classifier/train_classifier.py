@@ -76,6 +76,13 @@ def main():
     p.add_argument("--lr", type=float, default=2e-5)
     p.add_argument("--max-length", type=int, default=64, help="Headlines are short; 64 sub-tokens is generous")
     p.add_argument("--output-dir", type=str, default=None)
+    p.add_argument(
+        "--data-dir",
+        type=str,
+        default=None,
+        help="Dir with train/dev/test.csv (default: data/fake_news from Tamil-News-Headlines). "
+             "Use data/fake_news_1500 after running preprocess_1500.py.",
+    )
     args = p.parse_args()
 
     import torch
@@ -89,20 +96,34 @@ def main():
     )
 
     model_checkpoint = MODEL_REGISTRY[args.model]
-    output_dir = Path(args.output_dir) if args.output_dir else FAKE_NEWS_MODELS_DIR / args.model
+    data_dir = Path(args.data_dir) if args.data_dir else FAKE_NEWS_DATA_DIR
+    if args.output_dir:
+        output_dir = Path(args.output_dir)
+    elif args.data_dir:
+        from config import FAKE_NEWS_1500_MODELS_DIR
+        # Keep 1500 runs separate from the older Tamil-News-Headlines models
+        output_dir = FAKE_NEWS_1500_MODELS_DIR / args.model
+    else:
+        output_dir = FAKE_NEWS_MODELS_DIR / args.model
 
     logger.info(f"Fine-tuning {args.model} ({model_checkpoint}) as a REAL/FAKE headline classifier")
-    logger.info(f"CUDA available: {torch.cuda.is_available()}"
-                + ("" if torch.cuda.is_available() else " - this will be very slow on CPU, GPU strongly recommended"))
+    logger.info(f"Data dir: {data_dir}")
+    mps_ok = getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available()
+    logger.info(
+        f"CUDA={torch.cuda.is_available()} MPS={mps_ok}"
+        + ("" if (torch.cuda.is_available() or mps_ok) else " - CPU only, this will be slow")
+    )
 
     for split in ("train", "dev", "test"):
-        csv_path = FAKE_NEWS_DATA_DIR / f"{split}.csv"
+        csv_path = data_dir / f"{split}.csv"
         if not csv_path.exists():
-            logger.error(f"{csv_path} not found. Run src/fake_news_classifier/preprocess.py first.")
+            logger.error(
+                f"{csv_path} not found. Run preprocess.py or preprocess_1500.py first."
+            )
             sys.exit(1)
 
     def load_split(name: str) -> Dataset:
-        df = pd.read_csv(FAKE_NEWS_DATA_DIR / f"{name}.csv")
+        df = pd.read_csv(data_dir / f"{name}.csv")
         df["labels"] = df["label"].map(LABEL2ID)
         return Dataset.from_pandas(df[["text", "labels"]], preserve_index=False)
 

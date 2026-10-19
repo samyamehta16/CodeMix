@@ -1,0 +1,24 @@
+{
+  "model": "indicbert-v2",
+  "fake_source_recall": {
+    "BOOMTamil-FactCheck": {
+      "n": 24,
+      "recall": 0.20833333333333334,
+      "TP": 5,
+      "FN": 19
+    },
+    "NewscheckerTamil": {
+      "n": 8,
+      "recall": 0.875,
+      "TP": 7,
+      "FN": 1
+    }
+  },
+  "n_FN_total": 20,
+  "n_FP_total": 31,
+  "FN_marker_rates_all": {
+    "has_question": 0.0,
+    "has_paravum": 0.0,
+    "has_unmai": 0.0
+  }
+}

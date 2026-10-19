@@ -1,0 +1,19 @@
+{
+  "model": "xlm-roberta",
+  "split": "random",
+  "input": "romanised_tamil",
+  "transliteration": "indic_transliteration.sanscript TAMIL→ITRANS",
+  "native_macro_f1": 1.0,
+  "native_balanced_accuracy": 1.0,
+  "accuracy": 0.8785714285714286,
+  "balanced_accuracy": 0.8785714285714286,
+  "precision_fake": 0.8441558441558441,
+  "recall_fake": 0.9285714285714286,
+  "f1_fake": 0.8843537414965986,
+  "macro_f1": 0.878267096312209,
+  "TP": 65,
+  "FP": 12,
+  "FN": 5,
+  "TN": 58,
+  "n": 140
+}

@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF + MultinomialNB",
+  "split": "random",
+  "accuracy": 0.8642857142857143,
+  "balanced_accuracy": 0.8642857142857143,
+  "precision_fake": 0.8805970149253731,
+  "recall_fake": 0.8428571428571429,
+  "f1_fake": 0.8613138686131386,
+  "macro_f1": 0.8642233678730029,
+  "TP": 59,
+  "FP": 8,
+  "FN": 11,
+  "TN": 62,
+  "n": 140
+}

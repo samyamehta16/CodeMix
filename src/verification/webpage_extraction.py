@@ -25,9 +25,18 @@ import requests
 sys.path.append(str(Path(__file__).resolve().parent))
 from schemas import Evidence, SearchResult
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; TamilCodemixResearchBot/1.0; academic project)"}
+# Browser-like UA: many news sites block generic research-bot strings.
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 TIMEOUT_SECONDS = 12
 MAX_CHARS = 6000  # cap so the LLM prompt doesn't blow up on very long articles
+MIN_SNIPPET_CHARS = 40  # Serper snippets shorter than this are not useful as evidence
 
 
 def _extract_with_trafilatura(html: str):
@@ -56,6 +65,17 @@ def _extract_with_bs4(html: str):
         return None
 
 
+def _snippet_fallback(result: SearchResult, reason: str) -> Evidence:
+    """Use the Serper snippet when full-page fetch/parse fails (YouTube,
+    Facebook, 403s, JS shells). Weaker than article text but still usable
+    for the LLM verifier — better than UNVERIFIED with zero evidence."""
+    snippet = (result.snippet or "").strip()
+    if len(snippet) < MIN_SNIPPET_CHARS:
+        return Evidence(result=result, extraction_success=False, extraction_error=reason)
+    text = f"[Search snippet only — full page unavailable: {reason}]\n{result.title}\n{snippet}"
+    return Evidence(result=result, extracted_text=text[:MAX_CHARS], extraction_success=True)
+
+
 def extract_from_url(result: SearchResult) -> Evidence:
     if not result.url:
         return Evidence(result=result, extraction_success=False, extraction_error="No URL provided")
@@ -63,29 +83,26 @@ def extract_from_url(result: SearchResult) -> Evidence:
     try:
         resp = requests.get(result.url, headers=HEADERS, timeout=TIMEOUT_SECONDS)
     except requests.exceptions.Timeout:
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error=f"Timed out after {TIMEOUT_SECONDS}s")
+        return _snippet_fallback(result, f"Timed out after {TIMEOUT_SECONDS}s")
     except requests.exceptions.SSLError as e:
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error=f"SSL error: {e}")
+        return _snippet_fallback(result, f"SSL error: {e}")
     except requests.exceptions.RequestException as e:
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error=f"Request failed: {e}")
+        return _snippet_fallback(result, f"Request failed: {e}")
 
     if resp.status_code != 200:
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error=f"HTTP {resp.status_code}")
+        return _snippet_fallback(result, f"HTTP {resp.status_code}")
 
     content_type = resp.headers.get("Content-Type", "")
-    if "html" not in content_type.lower():
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error=f"Non-HTML content-type: {content_type or 'unknown'}")
+    if content_type and "html" not in content_type.lower() and "text/" not in content_type.lower():
+        return _snippet_fallback(result, f"Non-HTML content-type: {content_type}")
 
     text = _extract_with_trafilatura(resp.text) or _extract_with_bs4(resp.text)
     if not text:
-        return Evidence(result=result, extraction_success=False,
-                         extraction_error="Could not extract readable text from page "
-                                          "(paywalled, JS-rendered, or unsupported layout)")
+        return _snippet_fallback(
+            result,
+            "Could not extract readable text from page "
+            "(paywalled, JS-rendered, or unsupported layout)",
+        )
 
     return Evidence(result=result, extracted_text=text[:MAX_CHARS], extraction_success=True)
 

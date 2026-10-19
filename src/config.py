@@ -45,6 +45,9 @@ MODEL_REGISTRY = {
     "muril": "google/muril-base-cased",
     "indicbert": "ai4bharat/indic-bert",
     "indicbert-v2": "ai4bharat/IndicBERTv2-MLM-only",
+    # Extra multilingual baselines for dataset-hero comparison tables
+    "mbert": "bert-base-multilingual-cased",
+    "xlm-roberta": "xlm-roberta-base",
 }
 TRAINED_MODELS_DIR = ROOT_DIR / "models"
 
@@ -64,3 +67,18 @@ FAKE_NEWS_RAW_CSV = RAW_DIR / "Tamil-News-Headlines.csv"
 FAKE_NEWS_DATA_DIR = ROOT_DIR / "data" / "fake_news"
 FAKE_NEWS_LABELS = ["REAL", "FAKE"]  # Authenticity 0 -> REAL, 1 -> FAKE
 FAKE_NEWS_MODELS_DIR = ROOT_DIR / "models_fake_news"
+
+# news_dataset_1500.csv — balanced Tamil fact-check + news articles
+# (label_name fake/real; numeric label 0=fake, 1=real — opposite of
+# Tamil-News-Headlines Authenticity convention).
+FAKE_NEWS_1500_RAW_CSV = RAW_DIR / "news_dataset_1500.csv"
+FAKE_NEWS_1500_DATA_DIR = ROOT_DIR / "data" / "fake_news_1500"
+FAKE_NEWS_1500_MODELS_DIR = ROOT_DIR / "models_fake_news_1500"
+
+# tamil_news_dataset_1400_balanced.csv — self-collected balanced corpus
+FAKE_NEWS_1400_RAW_CSV = RAW_DIR / "tamil_news_dataset_1400_balanced.csv"
+FAKE_NEWS_1400_DATA_DIR = ROOT_DIR / "data" / "fake_news_1400"
+FAKE_NEWS_1400_MODELS_DIR = ROOT_DIR / "models_fake_news_1400"
+# Source-disjoint (leakage-aware) splits — primary paper evaluation
+FAKE_NEWS_1400_HARD_DATA_DIR = ROOT_DIR / "data" / "fake_news_1400_hard"
+FAKE_NEWS_1400_HARD_MODELS_DIR = ROOT_DIR / "models_fake_news_1400_hard"

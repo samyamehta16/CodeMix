@@ -1,0 +1,15 @@
+{
+  "model": "xlm-roberta",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/xlm-roberta_hard_seed42_test.csv",
+  "macro_f1_point": 0.26593177416952185,
+  "macro_f1_ci95": [
+    0.23264472210851336,
+    0.3021408944046864
+  ],
+  "balanced_accuracy_point": 0.2907142857142857,
+  "balanced_accuracy_ci95": [
+    0.21836941554467562,
+    0.37051956470495795
+  ],
+  "n_boot": 1000
+}

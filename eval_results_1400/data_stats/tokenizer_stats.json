@@ -1,0 +1,42 @@
+[
+  {
+    "tokenizer": "indicbert-v2",
+    "checkpoint": "ai4bharat/IndicBERTv2-MLM-only",
+    "median_tokens_with_special": 16.5,
+    "mean_tokens": 16.74,
+    "max_tokens": 39,
+    "pct_truncated_at_64": 0.0,
+    "n_truncated": 0,
+    "n": 1400
+  },
+  {
+    "tokenizer": "muril",
+    "checkpoint": "google/muril-base-cased",
+    "median_tokens_with_special": 18.0,
+    "mean_tokens": 18.36,
+    "max_tokens": 46,
+    "pct_truncated_at_64": 0.0,
+    "n_truncated": 0,
+    "n": 1400
+  },
+  {
+    "tokenizer": "mbert",
+    "checkpoint": "bert-base-multilingual-cased",
+    "median_tokens_with_special": 36.0,
+    "mean_tokens": 35.88142857142857,
+    "max_tokens": 69,
+    "pct_truncated_at_64": 0.2857142857142857,
+    "n_truncated": 4,
+    "n": 1400
+  },
+  {
+    "tokenizer": "xlm-roberta",
+    "checkpoint": "xlm-roberta-base",
+    "median_tokens_with_special": 23.0,
+    "mean_tokens": 23.117857142857144,
+    "max_tokens": 57,
+    "pct_truncated_at_64": 0.0,
+    "n_truncated": 0,
+    "n": 1400
+  }
+]

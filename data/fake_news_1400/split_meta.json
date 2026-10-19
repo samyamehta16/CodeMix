@@ -1,0 +1,7 @@
+{
+  "mode": "random_stratified",
+  "note": "Sources may appear in both train and test (leakage-prone).",
+  "train_n": 1120,
+  "dev_n": 140,
+  "test_n": 140
+}

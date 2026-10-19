@@ -1,0 +1,19 @@
+{
+  "model": "indicbert-v2",
+  "split": "hard",
+  "input": "romanised_tamil",
+  "transliteration": "indic_transliteration.sanscript TAMIL→ITRANS",
+  "native_macro_f1": 0.6229898403483309,
+  "native_balanced_accuracy": 0.6432142857142857,
+  "accuracy": 0.39267015706806285,
+  "balanced_accuracy": 0.4414285714285714,
+  "precision_fake": 0.06896551724137931,
+  "recall_fake": 0.5,
+  "f1_fake": 0.12121212121212122,
+  "macro_f1": 0.3286060606060606,
+  "TP": 16,
+  "FP": 216,
+  "FN": 16,
+  "TN": 134,
+  "n": 382
+}

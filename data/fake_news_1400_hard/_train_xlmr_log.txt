@@ -1,0 +1,101 @@
+15:35:08 [INFO] Fine-tuning xlm-roberta (xlm-roberta-base) as a REAL/FAKE headline classifier
+15:35:08 [INFO] Data dir: data/fake_news_1400_hard
+15:35:08 [INFO] CUDA=False MPS=True
+15:35:08 [INFO] train=630 dev=70 test=382 headlines
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Map:   0%|          | 0/630 [00:00<?, ? examples/s]Map: 100%|██████████| 630/630 [00:00<00:00, 32858.46 examples/s]
+Map:   0%|          | 0/70 [00:00<?, ? examples/s]Map: 100%|██████████| 70/70 [00:00<00:00, 37898.71 examples/s]
+Map:   0%|          | 0/382 [00:00<?, ? examples/s]Map: 100%|██████████| 382/382 [00:00<00:00, 54501.13 examples/s]
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 12074.79it/s]
+[transformers] [1mXLMRobertaForSequenceClassification LOAD REPORT[0m from: xlm-roberta-base
+Key                         | Status     | 
+----------------------------+------------+-
+lm_head.dense.bias          | UNEXPECTED | 
+roberta.pooler.dense.bias   | UNEXPECTED | 
+roberta.pooler.dense.weight | UNEXPECTED | 
+lm_head.layer_norm.bias     | UNEXPECTED | 
+lm_head.dense.weight        | UNEXPECTED | 
+lm_head.layer_norm.weight   | UNEXPECTED | 
+lm_head.bias                | UNEXPECTED | 
+classifier.out_proj.weight  | MISSING    | 
+classifier.dense.weight     | MISSING    | 
+classifier.dense.bias       | MISSING    | 
+classifier.out_proj.bias    | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  0%|          | 0/160 [00:00<?, ?it/s]/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+  1%|          | 1/160 [00:00<01:19,  2.00it/s]  1%|▏         | 2/160 [00:01<01:46,  1.48it/s]  2%|▏         | 3/160 [00:01<01:33,  1.68it/s]  2%|▎         | 4/160 [00:02<01:26,  1.80it/s]  3%|▎         | 5/160 [00:02<01:23,  1.85it/s]  4%|▍         | 6/160 [00:03<01:23,  1.85it/s]  4%|▍         | 7/160 [00:03<01:21,  1.87it/s]  5%|▌         | 8/160 [00:04<01:20,  1.89it/s]  6%|▌         | 9/160 [00:04<01:18,  1.91it/s]  6%|▋         | 10/160 [00:05<01:18,  1.91it/s]  7%|▋         | 11/160 [00:05<01:17,  1.92it/s]  8%|▊         | 12/160 [00:06<01:16,  1.92it/s]  8%|▊         | 13/160 [00:06<01:15,  1.94it/s]  9%|▉         | 14/160 [00:07<01:14,  1.96it/s]  9%|▉         | 15/160 [00:07<01:14,  1.96it/s] 10%|█         | 16/160 [00:08<01:12,  1.98it/s] 11%|█         | 17/160 [00:08<01:12,  1.97it/s] 11%|█▏        | 18/160 [00:09<01:12,  1.96it/s] 12%|█▏        | 19/160 [00:10<01:14,  1.88it/s] 12%|█▎        | 20/160 [00:10<01:12,  1.93it/s]                                                 12%|█▎        | 20/160 [00:10<01:12,  1.93it/s] 13%|█▎        | 21/160 [00:11<01:11,  1.95it/s] 14%|█▍        | 22/160 [00:11<01:11,  1.92it/s] 14%|█▍        | 23/160 [00:12<01:09,  1.96it/s] 15%|█▌        | 24/160 [00:12<01:09,  1.95it/s] 16%|█▌        | 25/160 [00:13<01:09,  1.95it/s] 16%|█▋        | 26/160 [00:13<01:08,  1.95it/s] 17%|█▋        | 27/160 [00:14<01:07,  1.98it/s] 18%|█▊        | 28/160 [00:14<01:06,  1.98it/s] 18%|█▊        | 29/160 [00:15<01:06,  1.96it/s] 19%|█▉        | 30/160 [00:15<01:05,  1.97it/s] 19%|█▉        | 31/160 [00:16<01:05,  1.97it/s] 20%|██        | 32/160 [00:16<01:04,  1.99it/s] 21%|██        | 33/160 [00:17<01:04,  1.98it/s] 21%|██▏       | 34/160 [00:17<01:03,  1.98it/s] 22%|██▏       | 35/160 [00:18<01:02,  1.99it/s] 22%|██▎       | 36/160 [00:18<01:02,  2.00it/s] 23%|██▎       | 37/160 [00:19<01:01,  1.99it/s] 24%|██▍       | 38/160 [00:19<01:01,  1.97it/s] 24%|██▍       | 39/160 [00:20<01:01,  1.98it/s] 25%|██▌       | 40/160 [00:20<00:59,  2.01it/s]                                                 25%|██▌       | 40/160 [00:21<00:59,  2.01it/s]{'loss': '0.6446', 'grad_norm': '8.599', 'learning_rate': '1.763e-05', 'epoch': '0.5'}
+{'loss': '0.5072', 'grad_norm': '6.079', 'learning_rate': '1.513e-05', 'epoch': '1'}
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 80%|████████  | 4/5 [00:00<00:00, 29.12it/s][A                                                
+                                             [A 25%|██▌       | 40/160 [00:21<00:59,  2.01it/s]
+100%|██████████| 5/5 [00:00<00:00, 29.12it/s][A
+                                             [A{'eval_loss': '0.3397', 'eval_accuracy': '1', 'eval_precision_fake': '1', 'eval_recall_fake': '1', 'eval_f1_fake': '1', 'eval_precision_macro': '1', 'eval_recall_macro': '1', 'eval_f1_macro': '1', 'eval_runtime': '0.3435', 'eval_samples_per_second': '203.8', 'eval_steps_per_second': '14.55', 'epoch': '1'}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it][AWriting model shards: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it]
+/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+ 26%|██▌       | 41/160 [00:24<03:04,  1.55s/it] 26%|██▋       | 42/160 [00:25<02:28,  1.26s/it] 27%|██▋       | 43/160 [00:25<02:01,  1.04s/it] 28%|██▊       | 44/160 [00:26<01:42,  1.13it/s] 28%|██▊       | 45/160 [00:26<01:28,  1.29it/s] 29%|██▉       | 46/160 [00:27<01:18,  1.45it/s] 29%|██▉       | 47/160 [00:27<01:12,  1.56it/s] 30%|███       | 48/160 [00:28<01:07,  1.67it/s] 31%|███       | 49/160 [00:28<01:03,  1.75it/s] 31%|███▏      | 50/160 [00:29<01:01,  1.78it/s] 32%|███▏      | 51/160 [00:29<01:00,  1.79it/s] 32%|███▎      | 52/160 [00:30<00:59,  1.81it/s] 33%|███▎      | 53/160 [00:30<00:58,  1.84it/s] 34%|███▍      | 54/160 [00:31<00:56,  1.86it/s] 34%|███▍      | 55/160 [00:32<00:56,  1.86it/s] 35%|███▌      | 56/160 [00:32<00:56,  1.86it/s] 36%|███▌      | 57/160 [00:33<00:54,  1.88it/s] 36%|███▋      | 58/160 [00:33<00:53,  1.91it/s] 37%|███▋      | 59/160 [00:34<00:52,  1.94it/s] 38%|███▊      | 60/160 [00:34<00:50,  1.97it/s]                                                 38%|███▊      | 60/160 [00:34<00:50,  1.97it/s] 38%|███▊      | 61/160 [00:35<00:49,  2.00it/s] 39%|███▉      | 62/160 [00:35<00:50,  1.95it/s] 39%|███▉      | 63/160 [00:36<00:49,  1.97it/s] 40%|████      | 64/160 [00:36<00:48,  1.99it/s] 41%|████      | 65/160 [00:37<00:48,  1.97it/s] 41%|████▏     | 66/160 [00:37<00:47,  1.96it/s] 42%|████▏     | 67/160 [00:38<00:47,  1.97it/s] 42%|████▎     | 68/160 [00:38<00:47,  1.95it/s] 43%|████▎     | 69/160 [00:39<00:46,  1.95it/s] 44%|████▍     | 70/160 [00:39<00:46,  1.95it/s] 44%|████▍     | 71/160 [00:40<00:45,  1.96it/s] 45%|████▌     | 72/160 [00:40<00:44,  1.98it/s] 46%|████▌     | 73/160 [00:41<00:44,  1.96it/s] 46%|████▋     | 74/160 [00:41<00:43,  1.97it/s] 47%|████▋     | 75/160 [00:42<00:43,  1.98it/s] 48%|████▊     | 76/160 [00:42<00:42,  1.98it/s] 48%|████▊     | 77/160 [00:43<00:42,  1.97it/s] 49%|████▉     | 78/160 [00:43<00:41,  1.97it/s] 49%|████▉     | 79/160 [00:44<00:40,  1.98it/s] 50%|█████     | 80/160 [00:44<00:43,  1.85it/s]                                                 50%|█████     | 80/160 [00:45<00:43,  1.85it/s]{'loss': '0.3839', 'grad_norm': '4.024', 'learning_rate': '1.263e-05', 'epoch': '1.5'}
+{'loss': '0.2524', 'grad_norm': '1.561', 'learning_rate': '1.013e-05', 'epoch': '2'}
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 80%|████████  | 4/5 [00:00<00:00, 29.24it/s][A                                                
+                                             [A 50%|█████     | 80/160 [00:45<00:43,  1.85it/s]
+100%|██████████| 5/5 [00:00<00:00, 29.24it/s][A
+                                             [A{'eval_loss': '0.1586', 'eval_accuracy': '1', 'eval_precision_fake': '1', 'eval_recall_fake': '1', 'eval_f1_fake': '1', 'eval_precision_macro': '1', 'eval_recall_macro': '1', 'eval_f1_macro': '1', 'eval_runtime': '0.205', 'eval_samples_per_second': '341.4', 'eval_steps_per_second': '24.39', 'epoch': '2'}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.88it/s][AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  2.88it/s]
+/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+ 51%|█████     | 81/160 [00:48<01:52,  1.43s/it] 51%|█████▏    | 82/160 [00:48<01:32,  1.19s/it] 52%|█████▏    | 83/160 [00:49<01:16,  1.01it/s] 52%|█████▎    | 84/160 [00:50<01:04,  1.19it/s] 53%|█████▎    | 85/160 [00:50<00:55,  1.36it/s] 54%|█████▍    | 86/160 [00:51<00:50,  1.48it/s] 54%|█████▍    | 87/160 [00:51<00:45,  1.59it/s] 55%|█████▌    | 88/160 [00:52<00:43,  1.66it/s] 56%|█████▌    | 89/160 [00:52<00:41,  1.73it/s] 56%|█████▋    | 90/160 [00:53<00:39,  1.78it/s] 57%|█████▋    | 91/160 [00:53<00:37,  1.83it/s] 57%|█████▊    | 92/160 [00:54<00:36,  1.88it/s] 58%|█████▊    | 93/160 [00:54<00:35,  1.89it/s] 59%|█████▉    | 94/160 [00:55<00:34,  1.89it/s] 59%|█████▉    | 95/160 [00:55<00:33,  1.92it/s] 60%|██████    | 96/160 [00:56<00:33,  1.90it/s] 61%|██████    | 97/160 [00:56<00:32,  1.93it/s] 61%|██████▏   | 98/160 [00:57<00:31,  1.95it/s] 62%|██████▏   | 99/160 [00:57<00:31,  1.95it/s] 62%|██████▎   | 100/160 [00:58<00:30,  1.97it/s]                                                  62%|██████▎   | 100/160 [00:58<00:30,  1.97it/s] 63%|██████▎   | 101/160 [00:58<00:29,  1.97it/s] 64%|██████▍   | 102/160 [00:59<00:29,  1.94it/s] 64%|██████▍   | 103/160 [00:59<00:29,  1.95it/s] 65%|██████▌   | 104/160 [01:00<00:29,  1.88it/s] 66%|██████▌   | 105/160 [01:00<00:29,  1.89it/s] 66%|██████▋   | 106/160 [01:01<00:28,  1.91it/s] 67%|██████▋   | 107/160 [01:01<00:27,  1.90it/s] 68%|██████▊   | 108/160 [01:02<00:27,  1.89it/s] 68%|██████▊   | 109/160 [01:03<00:27,  1.87it/s] 69%|██████▉   | 110/160 [01:03<00:26,  1.88it/s] 69%|██████▉   | 111/160 [01:04<00:25,  1.91it/s] 70%|███████   | 112/160 [01:04<00:24,  1.92it/s] 71%|███████   | 113/160 [01:05<00:24,  1.93it/s] 71%|███████▏  | 114/160 [01:05<00:23,  1.95it/s] 72%|███████▏  | 115/160 [01:06<00:23,  1.93it/s] 72%|███████▎  | 116/160 [01:06<00:23,  1.90it/s] 73%|███████▎  | 117/160 [01:07<00:22,  1.94it/s] 74%|███████▍  | 118/160 [01:07<00:21,  1.95it/s] 74%|███████▍  | 119/160 [01:08<00:21,  1.94it/s] 75%|███████▌  | 120/160 [01:08<00:22,  1.81it/s]                                                  75%|███████▌  | 120/160 [01:09<00:22,  1.81it/s]{'loss': '0.2163', 'grad_norm': '2.285', 'learning_rate': '7.625e-06', 'epoch': '2.5'}
+{'loss': '0.08848', 'grad_norm': '4.073', 'learning_rate': '5.125e-06', 'epoch': '3'}
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 60%|██████    | 3/5 [00:00<00:00, 28.08it/s][A                                                 
+                                             [A 75%|███████▌  | 120/160 [01:09<00:22,  1.81it/s]
+100%|██████████| 5/5 [00:00<00:00, 28.08it/s][A
+                                             [A{'eval_loss': '0.005471', 'eval_accuracy': '1', 'eval_precision_fake': '1', 'eval_recall_fake': '1', 'eval_f1_fake': '1', 'eval_precision_macro': '1', 'eval_recall_macro': '1', 'eval_f1_macro': '1', 'eval_runtime': '0.2394', 'eval_samples_per_second': '292.4', 'eval_steps_per_second': '20.88', 'epoch': '3'}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s][AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s]
+/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+ 76%|███████▌  | 121/160 [01:12<01:02,  1.60s/it] 76%|███████▋  | 122/160 [01:13<00:49,  1.30s/it] 77%|███████▋  | 123/160 [01:13<00:39,  1.06s/it] 78%|███████▊  | 124/160 [01:14<00:32,  1.11it/s] 78%|███████▊  | 125/160 [01:14<00:27,  1.29it/s] 79%|███████▉  | 126/160 [01:15<00:23,  1.43it/s] 79%|███████▉  | 127/160 [01:16<00:21,  1.54it/s] 80%|████████  | 128/160 [01:16<00:19,  1.64it/s] 81%|████████  | 129/160 [01:17<00:18,  1.71it/s] 81%|████████▏ | 130/160 [01:17<00:17,  1.75it/s] 82%|████████▏ | 131/160 [01:18<00:15,  1.82it/s] 82%|████████▎ | 132/160 [01:18<00:15,  1.86it/s] 83%|████████▎ | 133/160 [01:19<00:14,  1.90it/s] 84%|████████▍ | 134/160 [01:19<00:13,  1.91it/s] 84%|████████▍ | 135/160 [01:20<00:12,  1.94it/s] 85%|████████▌ | 136/160 [01:20<00:12,  1.92it/s] 86%|████████▌ | 137/160 [01:21<00:11,  1.96it/s] 86%|████████▋ | 138/160 [01:21<00:11,  1.97it/s] 87%|████████▋ | 139/160 [01:22<00:10,  1.98it/s] 88%|████████▊ | 140/160 [01:22<00:10,  1.96it/s]                                                  88%|████████▊ | 140/160 [01:23<00:10,  1.96it/s] 88%|████████▊ | 141/160 [01:23<00:09,  1.95it/s] 89%|████████▉ | 142/160 [01:23<00:09,  1.94it/s] 89%|████████▉ | 143/160 [01:24<00:08,  1.92it/s] 90%|█████████ | 144/160 [01:24<00:08,  1.92it/s] 91%|█████████ | 145/160 [01:25<00:07,  1.89it/s] 91%|█████████▏| 146/160 [01:25<00:07,  1.90it/s] 92%|█████████▏| 147/160 [01:26<00:06,  1.90it/s] 92%|█████████▎| 148/160 [01:26<00:06,  1.93it/s] 93%|█████████▎| 149/160 [01:27<00:05,  1.95it/s] 94%|█████████▍| 150/160 [01:27<00:05,  1.95it/s] 94%|█████████▍| 151/160 [01:28<00:04,  1.97it/s] 95%|█████████▌| 152/160 [01:28<00:04,  1.97it/s] 96%|█████████▌| 153/160 [01:29<00:03,  1.98it/s] 96%|█████████▋| 154/160 [01:29<00:03,  1.98it/s] 97%|█████████▋| 155/160 [01:30<00:02,  1.97it/s] 98%|█████████▊| 156/160 [01:30<00:02,  1.99it/s] 98%|█████████▊| 157/160 [01:31<00:01,  2.01it/s] 99%|█████████▉| 158/160 [01:31<00:01,  2.00it/s] 99%|█████████▉| 159/160 [01:32<00:00,  2.00it/s]100%|██████████| 160/160 [01:33<00:00,  1.82it/s]                                                 100%|██████████| 160/160 [01:33<00:00,  1.82it/s]{'loss': '0.05253', 'grad_norm': '0.4693', 'learning_rate': '2.625e-06', 'epoch': '3.5'}
+{'loss': '0.07473', 'grad_norm': '1.004', 'learning_rate': '1.25e-07', 'epoch': '4'}
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 80%|████████  | 4/5 [00:00<00:00, 29.53it/s][A                                                 
+                                             [A100%|██████████| 160/160 [01:33<00:00,  1.82it/s]
+100%|██████████| 5/5 [00:00<00:00, 29.53it/s][A
+                                             [A{'eval_loss': '0.002199', 'eval_accuracy': '1', 'eval_precision_fake': '1', 'eval_recall_fake': '1', 'eval_f1_fake': '1', 'eval_precision_macro': '1', 'eval_recall_macro': '1', 'eval_f1_macro': '1', 'eval_runtime': '0.196', 'eval_samples_per_second': '357.1', 'eval_steps_per_second': '25.5', 'epoch': '4'}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s][AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s]
+                                                 100%|██████████| 160/160 [01:36<00:00,  1.82it/s]100%|██████████| 160/160 [01:36<00:00,  1.66it/s]
+15:42:14 [INFO] Evaluating on held-out test.csv ...
+/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+{'train_runtime': '96.08', 'train_samples_per_second': '26.23', 'train_steps_per_second': '1.665', 'train_loss': '0.2775', 'epoch': '4'}
+  0%|          | 0/24 [00:00<?, ?it/s]  8%|▊         | 2/24 [00:00<00:01, 15.48it/s] 17%|█▋        | 4/24 [00:00<00:01, 17.30it/s] 25%|██▌       | 6/24 [00:00<00:01, 17.24it/s] 33%|███▎      | 8/24 [00:00<00:00, 16.74it/s] 46%|████▌     | 11/24 [00:00<00:00, 19.30it/s] 58%|█████▊    | 14/24 [00:00<00:00, 19.45it/s] 71%|███████   | 17/24 [00:00<00:00, 20.08it/s] 83%|████████▎ | 20/24 [00:01<00:00, 20.70it/s] 96%|█████████▌| 23/24 [00:01<00:00, 20.39it/s]100%|██████████| 24/24 [00:01<00:00, 19.39it/s]
+15:42:16 [INFO] {
+  "test_loss": 1.1776244640350342,
+  "test_accuracy": 0.32460732984293195,
+  "test_precision_fake": 0.03305785123966942,
+  "test_recall_fake": 0.25,
+  "test_f1_fake": 0.058394160583941604,
+  "test_precision_macro": 0.430814639905549,
+  "test_recall_macro": 0.2907142857142857,
+  "test_f1_macro": 0.26593177416952185,
+  "test_runtime": 1.3053,
+  "test_samples_per_second": 292.656,
+  "test_steps_per_second": 18.387,
+  "epoch": 4.0
+}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  4.77it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s]
+15:42:16 [INFO] Saved fine-tuned model + tokenizer + test_metrics.json -> models_fake_news_1400_hard/xlm-roberta

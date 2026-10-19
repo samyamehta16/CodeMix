@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF + LogisticRegression",
+  "split": "hard",
+  "accuracy": 0.8743455497382199,
+  "balanced_accuracy": 0.6616964285714286,
+  "precision_fake": 0.30952380952380953,
+  "recall_fake": 0.40625,
+  "f1_fake": 0.35135135135135137,
+  "macro_f1": 0.6408930669800235,
+  "TP": 13,
+  "FP": 29,
+  "FN": 19,
+  "TN": 321,
+  "n": 382
+}

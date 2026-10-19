@@ -1,0 +1,28 @@
+{
+  "model": "style_only_logistic",
+  "split": "hard",
+  "features": [
+    "has_question_mark",
+    "headline_length",
+    "contains \"என்று பரவும்\"",
+    "contains \"உண்மையா\" or \"உண்மை\""
+  ],
+  "coef": {
+    "has_question_mark": -5.03464941565961,
+    "headline_length": -0.012134338999295249,
+    "contains_paravum": -3.190242977507603,
+    "contains_unmai": -0.9174978202717916
+  },
+  "intercept": 3.906148156996471,
+  "accuracy": 0.5759162303664922,
+  "balanced_accuracy": 0.41366071428571427,
+  "precision_fake": 0.04861111111111111,
+  "recall_fake": 0.21875,
+  "f1_fake": 0.07954545454545454,
+  "macro_f1": 0.402017625231911,
+  "TP": 7,
+  "FP": 137,
+  "FN": 25,
+  "TN": 213,
+  "n": 382
+}

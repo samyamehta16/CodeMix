@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF_plus_LinearSVC",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/TF-IDF_plus_LinearSVC_hard_deterministic_test.csv",
+  "macro_f1_point": 0.5881701631701632,
+  "macro_f1_ci95": [
+    0.5264715559880139,
+    0.65109273527838
+  ],
+  "balanced_accuracy_point": 0.6529464285714286,
+  "balanced_accuracy_ci95": [
+    0.562197443922796,
+    0.7412501127226051
+  ],
+  "n_boot": 1000
+}

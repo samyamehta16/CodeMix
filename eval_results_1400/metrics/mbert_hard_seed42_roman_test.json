@@ -1,0 +1,19 @@
+{
+  "model": "mbert",
+  "split": "hard",
+  "input": "romanised_tamil",
+  "transliteration": "indic_transliteration.sanscript TAMIL→ITRANS",
+  "native_macro_f1": 0.4202862885033428,
+  "native_balanced_accuracy": 0.4336607142857143,
+  "accuracy": 0.34293193717277487,
+  "balanced_accuracy": 0.28651785714285716,
+  "precision_fake": 0.030042918454935622,
+  "recall_fake": 0.21875,
+  "f1_fake": 0.052830188679245285,
+  "macro_f1": 0.2749120883275986,
+  "TP": 7,
+  "FP": 226,
+  "FN": 25,
+  "TN": 124,
+  "n": 382
+}

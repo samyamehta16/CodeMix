@@ -1,0 +1,59 @@
+Map:   0%|          | 0/1120 [00:00<?, ? examples/s]Map: 100%|██████████| 1120/1120 [00:00<00:00, 35714.39 examples/s]
+Map:   0%|          | 0/140 [00:00<?, ? examples/s]Map: 100%|██████████| 140/140 [00:00<00:00, 38271.69 examples/s]
+Map:   0%|          | 0/140 [00:00<?, ? examples/s]Map: 100%|██████████| 140/140 [00:00<00:00, 42449.40 examples/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 44787.86it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: ai4bharat/IndicBERTv2-MLM-only
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.predictions.decoder.bias               | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.decoder.weight             | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Traceback (most recent call last):
+  File "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/scripts/eval_1400/train_one.py", line 186, in <module>
+    main()
+    ~~~~^^
+  File "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/scripts/eval_1400/train_one.py", line 120, in main
+    targs = TrainingArguments(
+        output_dir=str(run_dir / "checkpoints"),
+    ...<15 lines>...
+        save_total_limit=2,
+    )
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'warmup_ratio'
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Map:   0%|          | 0/1120 [00:00<?, ? examples/s]Map: 100%|██████████| 1120/1120 [00:00<00:00, 38335.40 examples/s]
+Map:   0%|          | 0/140 [00:00<?, ? examples/s]Map: 100%|██████████| 140/140 [00:00<00:00, 42144.73 examples/s]
+Map:   0%|          | 0/140 [00:00<?, ? examples/s]Map: 100%|██████████| 140/140 [00:00<00:00, 41778.91 examples/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 50417.79it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: ai4bharat/IndicBERTv2-MLM-only
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.decoder.weight             | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.decoder.bias               | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'pad_token_id': 3}.
+  0%|          | 0/280 [00:00<?, ?it/s]/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/.venv/lib/python3.14/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)

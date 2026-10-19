@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF + LinearSVC",
+  "split": "random",
+  "accuracy": 0.8785714285714286,
+  "balanced_accuracy": 0.8785714285714286,
+  "precision_fake": 0.9491525423728814,
+  "recall_fake": 0.8,
+  "f1_fake": 0.8682170542635659,
+  "macro_f1": 0.877817136403306,
+  "TP": 56,
+  "FP": 3,
+  "FN": 14,
+  "TN": 67,
+  "n": 140
+}

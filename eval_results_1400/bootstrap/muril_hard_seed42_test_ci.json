@@ -1,0 +1,15 @@
+{
+  "model": "muril",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/muril_hard_seed42_test.csv",
+  "macro_f1_point": 0.41898471872033316,
+  "macro_f1_ci95": [
+    0.38474510581026694,
+    0.45827594863323146
+  ],
+  "balanced_accuracy_point": 0.43223214285714284,
+  "balanced_accuracy_ci95": [
+    0.36238534413909246,
+    0.5132047185609334
+  ],
+  "n_boot": 1000
+}

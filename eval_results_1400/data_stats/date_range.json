@@ -1,0 +1,16 @@
+{
+  "date_columns_found": [],
+  "message": "No publication date column in tamil_news_dataset_1400_balanced.csv; cannot report date range per class.",
+  "columns": [
+    "id",
+    "headline",
+    "text",
+    "label",
+    "label_name",
+    "source",
+    "url",
+    "char_count",
+    "word_count",
+    "investigation_details"
+  ]
+}

@@ -1,0 +1,7 @@
+Model,Acc,Bal.Acc,P_F,R_F,F1_F,Macro-F1,FP,FN
+TF-IDF + MultinomialNB (random),0.8643,0.8643,0.8806,0.8429,0.8613,0.8642,8,11
+TF-IDF + LogisticRegression (random),0.8429,0.8429,0.9444,0.7286,0.8226,0.8408,3,19
+TF-IDF + LinearSVC (random),0.8786,0.8786,0.9492,0.8,0.8682,0.8778,3,14
+TF-IDF + MultinomialNB (hard),0.8455,0.8021,0.32,0.75,0.4486,0.6794,51,8
+TF-IDF + LogisticRegression (hard),0.8743,0.6617,0.3095,0.4062,0.3514,0.6409,29,19
+TF-IDF + LinearSVC (hard),0.8063,0.6529,0.2083,0.4688,0.2885,0.5882,57,17

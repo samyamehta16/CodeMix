@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF_plus_MultinomialNB",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/TF-IDF_plus_MultinomialNB_hard_deterministic_test.csv",
+  "macro_f1_point": 0.67939799997155,
+  "macro_f1_ci95": [
+    0.6147655152197941,
+    0.7384553434111155
+  ],
+  "balanced_accuracy_point": 0.8021428571428572,
+  "balanced_accuracy_ci95": [
+    0.7208516269570246,
+    0.8764624487491542
+  ],
+  "n_boot": 1000
+}

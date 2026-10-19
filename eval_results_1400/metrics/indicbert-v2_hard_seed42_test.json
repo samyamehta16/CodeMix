@@ -1,0 +1,16 @@
+{
+  "model": "indicbert-v2",
+  "split": "hard",
+  "seed": 42,
+  "accuracy": 0.8664921465968587,
+  "balanced_accuracy": 0.6432142857142857,
+  "precision_fake": 0.27906976744186046,
+  "recall_fake": 0.375,
+  "f1_fake": 0.32,
+  "macro_f1": 0.6229898403483309,
+  "TP": 12,
+  "FP": 31,
+  "FN": 20,
+  "TN": 319,
+  "n": 382
+}

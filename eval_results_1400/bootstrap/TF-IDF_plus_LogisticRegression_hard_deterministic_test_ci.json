@@ -1,0 +1,15 @@
+{
+  "model": "TF-IDF_plus_LogisticRegression",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/TF-IDF_plus_LogisticRegression_hard_deterministic_test.csv",
+  "macro_f1_point": 0.6408930669800235,
+  "macro_f1_ci95": [
+    0.5634692884842737,
+    0.710956416464891
+  ],
+  "balanced_accuracy_point": 0.6616964285714286,
+  "balanced_accuracy_ci95": [
+    0.5746914251360827,
+    0.7467726806796942
+  ],
+  "n_boot": 1000
+}

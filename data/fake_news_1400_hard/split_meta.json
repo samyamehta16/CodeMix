@@ -1,0 +1,27 @@
+{
+  "mode": "source_disjoint_hard",
+  "train_sources": [
+    "Dinamalar",
+    "Dinamalar-India",
+    "Dinamalar-TamilNadu",
+    "FactCrescendoTamil"
+  ],
+  "test_sources": [
+    "BOOMTamil-FactCheck",
+    "NewscheckerTamil",
+    "PuthiyaThalaimurai",
+    "Vikatan-TamilNadu"
+  ],
+  "note": "Primary paper evaluation. Train and test share no sources, so the model cannot rely on outlet identity. Test FAKE is small (BOOM+Newschecker only) because FactCrescendo dominates FAKE; rely on macro-F1 and per-class metrics.",
+  "train_n": 630,
+  "dev_n": 70,
+  "test_n": 382,
+  "test_label_counts": {
+    "REAL": 350,
+    "FAKE": 32
+  },
+  "train_label_counts": {
+    "FAKE": 315,
+    "REAL": 315
+  }
+}

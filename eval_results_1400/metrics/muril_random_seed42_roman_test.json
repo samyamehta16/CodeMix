@@ -1,0 +1,19 @@
+{
+  "model": "muril",
+  "split": "random",
+  "input": "romanised_tamil",
+  "transliteration": "indic_transliteration.sanscript TAMIL→ITRANS",
+  "native_macro_f1": 0.9928567784070617,
+  "native_balanced_accuracy": 0.9928571428571429,
+  "accuracy": 0.8142857142857143,
+  "balanced_accuracy": 0.8142857142857143,
+  "precision_fake": 0.8055555555555556,
+  "recall_fake": 0.8285714285714286,
+  "f1_fake": 0.8169014084507042,
+  "macro_f1": 0.8142478056746275,
+  "TP": 58,
+  "FP": 14,
+  "FN": 12,
+  "TN": 56,
+  "n": 140
+}

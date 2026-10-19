@@ -5,4 +5,8 @@ __pycache__/
 venv/
 models/
 models_fake_news/
+models_fake_news_1500/
+models_fake_news_1400/
+models_fake_news_1400_hard/
 data/cache/
+data/fake_news_1500/_train_*.txt

@@ -16,7 +16,8 @@ import time
 from pathlib import Path
 from typing import Optional
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 sys.path.append(str(Path(__file__).resolve().parent))
 from config import GEMINI_API_KEY, GEMINI_MODEL, LABELS
@@ -36,8 +37,8 @@ class GeminiAnnotator:
             raise ValueError(
                 "GEMINI_API_KEY is not set. Copy .env.example to .env and add your key."
             )
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model_name)
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = model_name
 
     def _build_prompt(self, comment_text: str) -> str:
         return _PROMPT_TEMPLATE.replace("{COMMENT_TEXT}", comment_text)
@@ -63,9 +64,13 @@ class GeminiAnnotator:
 
         for attempt in range(1, max_retries + 1):
             try:
-                response = self.model.generate_content(
-                    prompt,
-                    generation_config={"temperature": 0.1, "max_output_tokens": 2048},
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        temperature=0.1,
+                        max_output_tokens=2048,
+                    ),
                 )
                 tokens = self._parse_response(response.text)
                 if tokens:

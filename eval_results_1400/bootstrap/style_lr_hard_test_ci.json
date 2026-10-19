@@ -1,0 +1,15 @@
+{
+  "model": "style_lr_hard",
+  "file": "/Users/samyamehta/Documents/Codes/College/Project1/CodeMix/eval_results_1400/predictions/style_lr_hard_test.csv",
+  "macro_f1_point": 0.402017625231911,
+  "macro_f1_ci95": [
+    0.3687470557906763,
+    0.4375008725938188
+  ],
+  "balanced_accuracy_point": 0.41366071428571427,
+  "balanced_accuracy_ci95": [
+    0.3424739346334667,
+    0.492889284249151
+  ],
+  "n_boot": 1000
+}

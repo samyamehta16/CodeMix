@@ -107,12 +107,20 @@ def run_pipeline(raw_text: str, num_queries: int = 3, results_per_query: int = 4
             seen.add(r.url)
             deduped.append(r)
 
-    # Stage 4: webpage extraction
+    # Stage 4: webpage extraction (falls back to Serper snippets when page fetch fails)
     evidence = [extract_from_url(r) for r in deduped]
     n_ok = sum(e.extraction_success for e in evidence)
+    n_snippet = sum(
+        1 for e in evidence
+        if e.extraction_success and e.extracted_text
+        and e.extracted_text.startswith("[Search snippet only")
+    )
     if n_ok == 0:
-        notes.append("Found search results, but no page's text could be extracted "
-                     "(paywalls, timeouts, or unsupported layouts).")
+        notes.append("Found search results, but no page text or usable snippets "
+                     "could be recovered (paywalls, timeouts, or empty snippets).")
+    elif n_snippet:
+        notes.append(f"Used Serper snippets for {n_snippet}/{n_ok} evidence items "
+                     "(full-page extraction failed for those URLs).")
 
     # Stage 5: ranking
     ranked = rank_evidence(claim.normalized_claim, evidence)[:top_k_evidence]

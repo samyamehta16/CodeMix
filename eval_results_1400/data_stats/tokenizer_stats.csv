@@ -1,0 +1,5 @@
+tokenizer,checkpoint,median_tokens_with_special,mean_tokens,max_tokens,pct_truncated_at_64,n_truncated,n
+indicbert-v2,ai4bharat/IndicBERTv2-MLM-only,16.5,16.74,39,0.0,0,1400
+muril,google/muril-base-cased,18.0,18.36,46,0.0,0,1400
+mbert,bert-base-multilingual-cased,36.0,35.88142857142857,69,0.2857142857142857,4,1400
+xlm-roberta,xlm-roberta-base,23.0,23.117857142857144,57,0.0,0,1400

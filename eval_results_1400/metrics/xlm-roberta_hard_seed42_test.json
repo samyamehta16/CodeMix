@@ -1,0 +1,16 @@
+{
+  "model": "xlm-roberta",
+  "split": "hard",
+  "seed": 42,
+  "accuracy": 0.32460732984293195,
+  "balanced_accuracy": 0.2907142857142857,
+  "precision_fake": 0.03305785123966942,
+  "recall_fake": 0.25,
+  "f1_fake": 0.058394160583941604,
+  "macro_f1": 0.26593177416952185,
+  "TP": 8,
+  "FP": 234,
+  "FN": 24,
+  "TN": 116,
+  "n": 382
+}

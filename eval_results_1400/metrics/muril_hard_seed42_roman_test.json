@@ -1,0 +1,19 @@
+{
+  "model": "muril",
+  "split": "hard",
+  "input": "romanised_tamil",
+  "transliteration": "indic_transliteration.sanscript TAMIL→ITRANS",
+  "native_macro_f1": 0.41898471872033316,
+  "native_balanced_accuracy": 0.43223214285714284,
+  "accuracy": 0.887434554973822,
+  "balanced_accuracy": 0.48428571428571426,
+  "precision_fake": 0.0,
+  "recall_fake": 0.0,
+  "f1_fake": 0.0,
+  "macro_f1": 0.47018030513176146,
+  "TP": 0,
+  "FP": 11,
+  "FN": 32,
+  "TN": 339,
+  "n": 382
+}

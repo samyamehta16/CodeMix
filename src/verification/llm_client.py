@@ -14,7 +14,8 @@ import time
 from pathlib import Path
 from typing import Optional
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import GEMINI_API_KEY, GEMINI_MODEL
@@ -38,8 +39,10 @@ class LLMClient:
             raise LLMUnavailableError(
                 "GEMINI_API_KEY is not set. Copy .env.example to .env and add your key."
             )
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model_name)
+        # google.genai (not deprecated google.generativeai) — required for
+        # newer AI Studio auth keys that start with "AQ."
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = model_name
 
     def generate_text(self, prompt: str, temperature: float = 0.1, max_retries: int = 3) -> Optional[str]:
         """Returns raw model text, or None if every retry failed (rate
@@ -47,9 +50,13 @@ class LLMClient:
         these expected failure modes, so callers can degrade gracefully."""
         for attempt in range(1, max_retries + 1):
             try:
-                response = self.model.generate_content(
-                    prompt,
-                    generation_config={"temperature": temperature, "max_output_tokens": 2048},
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        temperature=temperature,
+                        max_output_tokens=2048,
+                    ),
                 )
                 return response.text
             except Exception as e:
