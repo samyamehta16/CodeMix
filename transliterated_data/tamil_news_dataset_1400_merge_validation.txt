@@ -1,0 +1,78 @@
+================================================================================
+FINAL MERGE VALIDATION REPORT: 1,400-RECORD TANGLISH NEWS DATASET
+================================================================================
+
+1. SOURCE AND INPUT BATCHES:
+- Original Source Dataset: C:\Users\palak\OneDrive\Desktop\CodeMix\data\raw\tamil_news_dataset_1400_balanced.csv
+  * Rows: 1400
+  * Pre-merge SHA-256:  d7d98666343e483185309b8800f452a93d3ba37c8d0ff1862f54ff039882e231
+  * Post-merge SHA-256: d7d98666343e483185309b8800f452a93d3ba37c8d0ff1862f54ff039882e231
+  * Source Integrity: PASSED (100% identical and unmodified)
+
+- Batch 1 (Records 1–700): C:\Users\palak\OneDrive\Desktop\CodeMix\transliterated_data\tamil_news_dataset_1_700_tanglish.csv
+  * Rows: 700 | First ID: 75a78baffc0c2e77 | Last ID: cad9f4b975f02e2c
+- Batch 2 (Records 700–900): C:\Users\palak\OneDrive\Desktop\CodeMix\tamil_news_dataset_records700_900_tanglish.csv
+  * Rows: 201 | First ID: cad9f4b975f02e2c | Last ID: bd60ba7f48acac94
+- Batch 3 (Records 900–1200): C:\Users\palak\OneDrive\Desktop\CodeMix\tamil_news_dataset_records900_1200_tanglish.csv
+  * Rows: 301 | First ID: bd60ba7f48acac94 | Last ID: 798820e6a645b5cd
+- Batch 4 (Records 1200–1400): C:\Users\palak\OneDrive\Desktop\CodeMix\tamil_news_dataset_records1200_1400_tanglish.csv
+  * Rows: 201 | First ID: 798820e6a645b5cd | Last ID: 86f598be1e0f7adc
+
+2. LOGICAL SLICE SELECTION & CONTRIBUTION:
+- Records 1–699:   Taken from Batch 1 (699 records, Source iloc[0:699])
+- Records 700–899: Taken from Batch 2 (200 records, Source iloc[699:899])
+- Records 900–1199: Taken from Batch 3 (300 records, Source iloc[899:1199])
+- Records 1200–1400: Taken from Batch 4 (201 records, Source iloc[1199:1400])
+- Total Merged Rows: 1,400 records
+
+3. BOUNDARY RECORD CONFLICT RESOLUTION:
+- Boundary 1 (Record 700, ID: cad9f4b975f02e2c):
+  * Batch 1 Row 700 (index 699) vs Batch 2 Row 700 (index 0)
+  * Transliterated Text Comparison: 100% IDENTICAL across headline, text, and investigation details.
+  * Metadata note: Batch 1 had recalculated character/word counts, whereas Batch 2 maintained source counts.
+  * Resolution: Selected Batch 2 instance for records 700–899 slice; preserved source dataset count metadata.
+- Boundary 2 (Record 900, ID: bd60ba7f48acac94):
+  * Batch 2 Row 900 (index 200) vs Batch 3 Row 900 (index 0)
+  * Comparison: 100% IDENTICAL across headline, text, and metadata.
+  * Resolution: Selected Batch 3 instance for records 900–1199 slice.
+- Boundary 3 (Record 1200, ID: 798820e6a645b5cd):
+  * Batch 3 Row 1200 (index 300) vs Batch 4 Row 1200 (index 0)
+  * Comparison: 100% IDENTICAL across headline, text, and metadata.
+  * Resolution: Selected Batch 4 instance for records 1200–1400 slice.
+
+4. FINAL OUTPUT CSV STRUCTURE & INTEGRITY:
+- Output Filename: C:\Users\palak\OneDrive\Desktop\CodeMix\tamil_news_dataset_1400_tanglish.csv
+- Backup Filename: C:\Users\palak\OneDrive\Desktop\CodeMix\transliterated_data\tamil_news_dataset_1400_tanglish.csv
+- Row Count: exactly 1,400 data rows + 1 header row (PASSED)
+- Column Count and Names (10): ['id', 'headline', 'text', 'label', 'label_name', 'source', 'url', 'char_count', 'word_count', 'investigation_details'] (PASSED)
+- ID Order Alignment: 1,400 out of 1,400 IDs match source dataset 1-to-1 in exact sequence (PASSED)
+- Unique IDs: 1,400 unique IDs (0 duplicates) (PASSED)
+
+5. METADATA PRESERVATION (NON-TRANSLITERATED COLUMNS):
+- Column `id`: 100% matched (PASSED)
+- Column `label`: 100% matched (PASSED)
+- Column `label_name`: 100% matched (PASSED)
+- Column `source`: 100% matched (PASSED)
+- Column `url`: 100% matched (PASSED)
+- Column `char_count`: 100% matched (PASSED)
+- Column `word_count`: 100% matched (PASSED)
+
+6. MISSING VALUE / NULL PRESERVATION:
+- `headline`: 0 nulls in source -> 0 nulls in final (PASSED)
+- `text`: 0 nulls in source -> 0 nulls in final (PASSED)
+- `investigation_details`: 701 nulls in source -> 701 nulls in final (PASSED)
+
+7. RESIDUAL TAMIL SCRIPT AUDIT (Unicode range U+0B80 to U+0BFF):
+- `headline`: 0 residual characters across 0 rows (PASSED)
+- `text`: 0 residual characters across 0 rows (PASSED)
+- `investigation_details`: 0 residual characters across 0 rows (PASSED)
+
+8. NUMERICAL, DATE, AND STRUCTURAL WARNINGS:
+- Number/Date Tokenization Differences: 27 records affected by Tamil case-suffix separation (e.g. '100-க்கும்' -> '100-kkum')
+  * Details (first 5 warnings): [{'row': 128, 'id': 'ef613b9211f20cd0', 'missing': {'12': 1}, 'added': {}}, {'row': 154, 'id': 'e607ada3f5bf6e17', 'missing': {'1': 4}, 'added': {}}, {'row': 213, 'id': '74343abd6c4aaf66', 'missing': {}, 'added': {'18': 1}}, {'row': 214, 'id': '876a9b23a4a53c01', 'missing': {}, 'added': {'9': 1}}, {'row': 217, 'id': '51ed99303ce61d37', 'missing': {'24': 1, '7': 1}, 'added': {}}]
+- Truncation / Unexpected Empty Fields: 0 detected (PASSED)
+
+9. CONCLUSION & FINAL STATUS:
+- Merge Status: MERGE COMPLETE — AUTOMATED VALIDATION PASSED
+- Human Linguistic Review: NOT PERFORMED (This report certifies automated structural, metadata, and character-level integrity across all 1,400 records).
+================================================================================
